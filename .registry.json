@@ -3,5 +3,15 @@
     "source": "https://github.com/alirezarezvani/claude-skills",
     "installed_at": "2026-02-22T23:21:31.719916+00:00",
     "path": "C:\\Users\\olatu\\.claude\\skills\\user\\content-creator"
+  },
+  "social-media-analyzer": {
+    "source": "https://github.com/alirezarezvani/claude-skills",
+    "installed_at": "2026-02-22T23:25:55.984897+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\social-media-analyzer"
+  },
+  "campaign-analytics": {
+    "source": "https://github.com/alirezarezvani/claude-skills",
+    "installed_at": "2026-02-22T23:25:59.025082+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\campaign-analytics"
   }
 }
