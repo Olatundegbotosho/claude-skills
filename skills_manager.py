@@ -40,6 +40,14 @@ import tempfile
 from pathlib import Path
 from datetime import datetime, timezone
 
+# ── Windows UTF-8 fix ─────────────────────────────────────────────────────────
+# Windows Python defaults to cp1252 which can't encode unicode symbols (✓ ✗ ✅)
+# Reconfigure stdout/stderr to utf-8 at startup to prevent UnicodeEncodeError
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 # ── Configuration ─────────────────────────────────────────────────────────────
 
 SKILLS_DIR = Path(os.environ.get("SKILLS_DIR", Path.home() / ".claude" / "skills" / "user"))
@@ -154,10 +162,19 @@ def find_skills_in_repo(repo_dir: Path) -> list[str]:
         for item in root.iterdir():
             if item.is_dir() and (item / SKILL_MD).exists():
                 found.append(item.name)
+
+    # Level 2 — pick up skills nested under category dirs
+    for subdir in repo_dir.iterdir():
+        if subdir.is_dir() and not subdir.name.startswith("."):
+            for item in subdir.iterdir():
+                if item.is_dir() and (item / SKILL_MD).exists():
+                    found.append(item.name)
+
     return list(set(found))
 
 
 def locate_skill_dir(repo_dir: Path, skill_name: str) -> Path | None:
+    # Level 1 — fast check of known root patterns
     search_roots = [
         repo_dir,
         repo_dir / "skills",
@@ -169,6 +186,14 @@ def locate_skill_dir(repo_dir: Path, skill_name: str) -> Path | None:
         candidate = root / skill_name
         if candidate.is_dir() and (candidate / SKILL_MD).exists():
             return candidate
+
+    # Level 2 — recursive fallback for repos with category subdirs (e.g. marketing-skill/content-creator)
+    for subdir in sorted(repo_dir.iterdir()):
+        if subdir.is_dir() and not subdir.name.startswith("."):
+            candidate = subdir / skill_name
+            if candidate.is_dir() and (candidate / SKILL_MD).exists():
+                return candidate
+
     return None
 
 
@@ -364,30 +389,18 @@ def cmd_push(skill_name: str | None = None, push_all: bool = False):
 
     # Init or pull personal repo
     if not (personal_dir / ".git").exists():
-        print(f"Initializing personal skills repo at {personal_dir} ...")
-        git_run(["init"], cwd=personal_dir)
-        git_run(["remote", "add", "origin", PERSONAL_REPO], cwd=personal_dir)
-
-        # Try to pull if remote exists
-        code, _, _ = git_run(["pull", "origin", "main", "--allow-unrelated-histories"], cwd=personal_dir, silent=True)
+        print(f"Cloning personal skills repo into {personal_dir} ...")
+        # Use clone so we get the full remote history and branch tracking from the start
+        code, _, err = git_run(["clone", PERSONAL_REPO, str(personal_dir)])
         if code != 0:
-            # First push — set up README
+            # Remote is empty or unreachable — bootstrap a fresh repo
+            print("  Remote empty or unreachable — bootstrapping local repo ...")
+            personal_dir.mkdir(parents=True, exist_ok=True)
+            git_run(["init", "-b", "main"], cwd=personal_dir)
+            git_run(["remote", "add", "origin", PERSONAL_REPO], cwd=personal_dir)
             readme = personal_dir / "README.md"
             if not readme.exists():
-                readme.write_text("""# Claude Skills — @olatundegbotosho
-
-Personal skills library for Claude Code. Auto-managed by skills_manager.py.
-
-Each folder is a self-contained skill with a SKILL.md and optional scripts/.
-
-## Focus Areas
-- Social media engine (content creation, repurposing, scheduling, analytics)
-- Motive Power / NPUC consulting workflows
-- RFP responses and business development
-- Publishing and author platform
-
-Skills sourced from: Anthropic, VoltAgent, daymade, alirezarezvani, ComposioHQ, and custom-built.
-""")
+                readme.write_text("# Claude Skills — @olatundegbotosho\n\nPersonal skills library for Claude Code.\n")
             git_run(["add", "README.md"], cwd=personal_dir)
             git_run(["commit", "-m", "init: personal skills repo"], cwd=personal_dir)
     else:
@@ -437,10 +450,12 @@ Skills sourced from: Anthropic, VoltAgent, daymade, alirezarezvani, ComposioHQ, 
 
     code, _, err = git_run(["push", "origin", "main"], cwd=personal_dir)
     if code != 0:
-        # Try push with upstream set
-        git_run(["push", "--set-upstream", "origin", "main"], cwd=personal_dir)
+        code, _, err = git_run(["push", "--set-upstream", "origin", "main"], cwd=personal_dir)
 
-    print(f"\n✅ Pushed {len(pushed)} skill(s) to {PERSONAL_REPO}")
+    if code == 0:
+        print(f"\n✅ Pushed {len(pushed)} skill(s) to {PERSONAL_REPO}")
+    else:
+        print(f"\n✗ Push failed. Run manually:\n  cd {personal_dir}\n  git push origin main")
 
 
 def cmd_update(skill_name: str):
