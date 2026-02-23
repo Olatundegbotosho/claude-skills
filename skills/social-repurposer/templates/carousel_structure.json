@@ -1,0 +1,133 @@
+{
+  "_comment": "Placid carousel template structure for Content Empire. 7 slides is optimal for Instagram/LinkedIn algorithm.",
+  "template_version": "1.0",
+  "slide_count": 7,
+  "platform_targets": ["instagram", "linkedin"],
+  "niche_variable": "{{NICHE}}",
+  "topic_variable": "{{TOPIC}}",
+
+  "slides": [
+    {
+      "slide": 1,
+      "role": "hook",
+      "placid_layer": "slide_01_hook",
+      "headline_max_chars": 60,
+      "body_max_chars": 0,
+      "content_template": "{{HOOK_HEADLINE}}",
+      "design_notes": "Full-bleed background. Headline is the ONLY text. Large, bold, centered. Brand color background.",
+      "visual_rule": "Bold stat or question only. No body copy on slide 1.",
+      "example_headline": "90% of professionals aren't ready for what's coming."
+    },
+    {
+      "slide": 2,
+      "role": "problem_setup",
+      "placid_layer": "slide_02_setup",
+      "headline_max_chars": 50,
+      "body_max_chars": 120,
+      "content_template": {
+        "headline": "{{PROBLEM_HEADLINE}}",
+        "body": "{{PROBLEM_BODY}}"
+      },
+      "design_notes": "Split layout: icon or graphic left, text right. Subheading + 2-3 lines body.",
+      "visual_rule": "Introduce the tension. Why does this matter now?"
+    },
+    {
+      "slide": 3,
+      "role": "insight_1",
+      "placid_layer": "slide_03_insight",
+      "headline_max_chars": 50,
+      "body_max_chars": 150,
+      "content_template": {
+        "number": "01",
+        "headline": "{{INSIGHT_1_HEADLINE}}",
+        "body": "{{INSIGHT_1_BODY}}"
+      },
+      "design_notes": "Large number (01) in brand color. Clean, minimal. Data or bold claim.",
+      "visual_rule": "One insight only. If it needs more than 2 lines to explain, cut it."
+    },
+    {
+      "slide": 4,
+      "role": "insight_2",
+      "placid_layer": "slide_04_insight",
+      "headline_max_chars": 50,
+      "body_max_chars": 150,
+      "content_template": {
+        "number": "02",
+        "headline": "{{INSIGHT_2_HEADLINE}}",
+        "body": "{{INSIGHT_2_BODY}}"
+      },
+      "design_notes": "Same layout as slide 3, alternating accent color.",
+      "visual_rule": "Builds on insight 1. Raises the stakes."
+    },
+    {
+      "slide": 5,
+      "role": "insight_3",
+      "placid_layer": "slide_05_insight",
+      "headline_max_chars": 50,
+      "body_max_chars": 150,
+      "content_template": {
+        "number": "03",
+        "headline": "{{INSIGHT_3_HEADLINE}}",
+        "body": "{{INSIGHT_3_BODY}}"
+      },
+      "design_notes": "Same layout. Third insight should be the most surprising or actionable.",
+      "visual_rule": "The 'turn' — this is what makes people save the carousel."
+    },
+    {
+      "slide": 6,
+      "role": "takeaway",
+      "placid_layer": "slide_06_takeaway",
+      "headline_max_chars": 70,
+      "body_max_chars": 180,
+      "content_template": {
+        "headline": "{{TAKEAWAY_HEADLINE}}",
+        "body": "{{TAKEAWAY_BODY}}"
+      },
+      "design_notes": "Warm, personal tone. Quote-style layout or checklist. This slide gets saved.",
+      "visual_rule": "Practical. Gives them something to DO or REMEMBER."
+    },
+    {
+      "slide": 7,
+      "role": "cta",
+      "placid_layer": "slide_07_cta",
+      "headline_max_chars": 60,
+      "body_max_chars": 100,
+      "content_template": {
+        "headline": "{{CTA_HEADLINE}}",
+        "action": "{{CTA_ACTION}}",
+        "handle": "{{POSTING_HANDLE}}"
+      },
+      "design_notes": "Brand colors, handle visible. One CTA. Save / Follow / Comment.",
+      "visual_rule": "Never two CTAs on the last slide. Pick one and commit.",
+      "example_cta": "Save this. You'll need it. | Follow {{HANDLE}} for weekly insights."
+    }
+  ],
+
+  "brand_colors_by_niche": {
+    "ttbp": {"primary": "#C9A84C", "secondary": "#1A1A1A", "text": "#FFFFFF"},
+    "cb": {"primary": "#2D5016", "secondary": "#F5F0E8", "text": "#1A1A1A"},
+    "tundexai": {"primary": "#0066FF", "secondary": "#FFFFFF", "text": "#1A1A1A"},
+    "wellwithtunde": {"primary": "#C4714B", "secondary": "#7A9E7E", "text": "#FFFFFF"},
+    "tundestalksmen": {"primary": "#1B2A4A", "secondary": "#C9A84C", "text": "#FFFFFF"}
+  },
+
+  "caption_template": {
+    "line_1": "{{HOOK_HEADLINE}}",
+    "line_2": "",
+    "body": "{{CAPTION_BODY_2-4_SENTENCES}}",
+    "line_break": "",
+    "save_prompt": "Save this before you scroll past it.",
+    "hashtag_comment": "// Put hashtags in first comment for cleaner look",
+    "hashtags": "{{HASHTAGS}}"
+  },
+
+  "algorithm_checklist": [
+    "Hook slide stops the scroll — no one should swipe past slide 1",
+    "Swipe-to-next hook visible on each slide edge (15px of next slide showing)",
+    "7 slides is optimal — do not cut to 5 unless topic doesn't support 7",
+    "Slide 5 or 6 delivers the highest-value insight (save-worthy moment)",
+    "Last slide has handle visible for new-account discovery",
+    "Caption hook works WITHOUT seeing the slides (for feed preview)",
+    "All text readable at mobile size — minimum 28pt equivalent"
+  ]
+}

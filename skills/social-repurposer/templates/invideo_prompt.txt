@@ -1,0 +1,68 @@
+INVIDEO.AI SCRIPT PROMPT — Content Empire
+=========================================
+Niche: {{NICHE}}
+Platform: YouTube Short / TikTok / Instagram Reel
+Topic: {{TOPIC}}
+Week: {{WEEK}}
+Duration: 45–60 seconds
+
+VOICE & TONE
+------------
+Speaker: Tunde Gbotosho — Nigerian-American author, AI consultant, entrepreneur.
+Tone: Direct, warm, data-informed. Conversational energy from the first frame.
+Opening rule: NEVER start with "Hey guys" or "Welcome back." Open with the point.
+Swearing: Only for emphasis, rare, earned.
+
+SCRIPT STRUCTURE (use this exact format for InVideo.ai)
+---------------------------------------------------------
+[HOOK — 0-3 seconds]
+Bold claim OR surprising stat OR open loop question.
+Example: "90% of professionals are about to be disrupted by AI — and most don't see it coming."
+
+[SETUP — 3-15 seconds]
+One sentence of context. Why this matters right now.
+Keep it tight. Every word earns its place.
+
+[BODY — 15-45 seconds]
+3 punchy beats. Each beat = 1 insight, delivered in 8-10 seconds.
+Beat 1: [FIRST INSIGHT]
+Beat 2: [SECOND INSIGHT — builds on Beat 1]
+Beat 3: [THIRD INSIGHT — escalates tension or delivers the turn]
+
+[PAYOFF — 45-55 seconds]
+The revelation or reframe. This is what makes them screenshot or save.
+"Here's the thing nobody's saying out loud: {{REFRAME}}"
+
+[CTA — 55-60 seconds]
+One action only. Subscribe OR comment OR follow. Never all three.
+Pick: "Follow for more" / "What do you think — drop it below" / "Save this for later"
+
+VISUAL DIRECTION (InVideo.ai style notes)
+------------------------------------------
+- B-roll: Professional settings, tech environments, or split-screen talking head
+- Text overlays: Key stat or phrase appears on screen when spoken
+- Color palette: Match niche brand colors
+  - ttbp: Gold (#C9A84C) + Black (#1A1A1A)
+  - cb: Deep Green (#2D5016) + Cream (#F5F0E8)
+  - tundexai: Electric Blue (#0066FF) + White
+  - wellwithtunde: Terracotta (#C4714B) + Sage (#7A9E7E)
+  - tundestalksmen: Navy (#1B2A4A) + Gold (#C9A84C)
+- Captions: Auto-generated, white with dark outline — always on
+- Music: Subtle, non-distracting background. Energy matches script pacing.
+- Logo bug: Bottom-right corner, 20% opacity
+
+ALGORITHM SIGNAL CHECKLIST
+----------------------------
+☐ Hook delivers in first 3 seconds (no slow builds)
+☐ Watch-through hook: payoff teased at 0-3 sec, delivered at 45 sec
+☐ No "intro cards" — get straight to content
+☐ Caption covers key phrase for silent viewers
+☐ CTA asks for ONE action only
+☐ Script fits 45-60 sec at natural speaking pace
+
+TOPIC-SPECIFIC NOTES
+---------------------
+Topic: {{TOPIC}}
+Key insight to hit: {{KEY_INSIGHT}}
+Source research: {{SOURCE_EXCERPT}}
+Hashtags: {{HASHTAGS}}

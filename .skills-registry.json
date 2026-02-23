@@ -1,0 +1,51 @@
+{
+  "content-creator": {
+    "source": "https://github.com/alirezarezvani/claude-skills",
+    "installed_at": "2026-02-22T23:21:31.719916+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\content-creator"
+  },
+  "social-media-analyzer": {
+    "source": "https://github.com/alirezarezvani/claude-skills",
+    "installed_at": "2026-02-22T23:25:55.984897+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\social-media-analyzer"
+  },
+  "campaign-analytics": {
+    "source": "https://github.com/alirezarezvani/claude-skills",
+    "installed_at": "2026-02-22T23:25:59.025082+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\campaign-analytics"
+  },
+  "social-repurposer": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\social-repurposer",
+    "description": "Repurposes one content piece into LinkedIn, Twitter/X, Instagram, Facebook, Newsletter, and YouTube posts. Algorithm-first, Voice DNA injected, ContentStudio JSON + Markdown dual export.",
+    "scripts": [
+      "scripts/repurpose.py",
+      "scripts/voice_loader.py",
+      "scripts/niche_config.py",
+      "scripts/platform_specs.py",
+      "scripts/export.py"
+    ],
+    "templates": [
+      "templates/invideo_prompt.txt",
+      "templates/carousel_structure.json"
+    ],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  },
+  "content-calendar": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\content-calendar",
+    "description": "Generates a full weekly content calendar for any Content Empire niche. Outputs ContentStudio bulk import JSON and human-readable CSV. Algorithm-optimized timing per platform.",
+    "scripts": [
+      "scripts/calendar_gen.py",
+      "scripts/timing_engine.py",
+      "scripts/contentstudio_export.py",
+      "scripts/csv_export.py"
+    ],
+    "config": [
+      "config/default_schedule.yaml"
+    ],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  }
+}

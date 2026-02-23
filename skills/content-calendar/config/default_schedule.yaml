@@ -1,0 +1,322 @@
+# default_schedule.yaml — Default weekly posting schedule for Content Empire
+# All times are Eastern Time (ET)
+# Override per-niche in calendar_gen.py --schedule-override flag
+
+schema_version: "1.0"
+last_updated: "2026-02-22"
+author: "Tunde Gbotosho"
+
+# ── Global rules ──────────────────────────────────────────────────────────────
+global:
+  timezone: "America/New_York"
+  week_start: "monday"
+  min_gap_hours: 2          # Minimum hours between posts on same platform same day
+  max_daily_posts: 4        # Never post more than 4 times total per day across platforms
+  newsletter_days: ["tuesday", "thursday"]  # Only send newsletter on these days
+  weekend_platforms: ["instagram", "twitter", "facebook", "youtube_short"]  # No LinkedIn/newsletter on weekends
+
+# ── Per-niche schedules ────────────────────────────────────────────────────────
+# Each entry specifies: platform, day, time (ET), content_type, priority
+# Priority: high = must publish | medium = publish if content ready | low = skip if busy week
+
+niches:
+
+  ttbp:  # That's The Business Podcast
+    description: "Professional + AI thought leadership"
+    weekly_posts_target: 14
+    schedule:
+      - platform: linkedin
+        day: tuesday
+        time: "08:00"
+        content_type: long-form-post
+        priority: high
+      - platform: linkedin
+        day: thursday
+        time: "08:00"
+        content_type: long-form-post
+        priority: high
+      - platform: twitter
+        day: monday
+        time: "08:00"
+        content_type: thread
+        priority: high
+      - platform: twitter
+        day: wednesday
+        time: "08:00"
+        content_type: thread
+        priority: medium
+      - platform: twitter
+        day: friday
+        time: "09:00"
+        content_type: single-tweet
+        priority: medium
+      - platform: instagram
+        day: tuesday
+        time: "12:00"
+        content_type: carousel
+        priority: high
+      - platform: instagram
+        day: friday
+        time: "11:00"
+        content_type: feed-post
+        priority: medium
+      - platform: instagram
+        day: saturday
+        time: "10:00"
+        content_type: reel
+        priority: medium
+      - platform: facebook
+        day: wednesday
+        time: "13:00"
+        content_type: feed-post
+        priority: low
+      - platform: newsletter
+        day: tuesday
+        time: "07:00"
+        content_type: newsletter
+        priority: high
+      - platform: youtube_short
+        day: monday
+        time: "15:00"
+        content_type: youtube-short
+        priority: medium
+      - platform: youtube_short
+        day: thursday
+        time: "15:00"
+        content_type: youtube-short
+        priority: medium
+      - platform: youtube_long
+        day: saturday
+        time: "12:00"
+        content_type: youtube-video
+        priority: low
+
+  cb:  # Connecting Bridges Publishing
+    description: "Book + diaspora + cultural commentary"
+    weekly_posts_target: 10
+    schedule:
+      - platform: instagram
+        day: monday
+        time: "12:00"
+        content_type: carousel
+        priority: high
+      - platform: instagram
+        day: wednesday
+        time: "11:00"
+        content_type: feed-post
+        priority: medium
+      - platform: instagram
+        day: saturday
+        time: "10:00"
+        content_type: feed-post
+        priority: medium
+      - platform: facebook
+        day: tuesday
+        time: "13:00"
+        content_type: feed-post
+        priority: medium
+      - platform: facebook
+        day: thursday
+        time: "13:00"
+        content_type: link-post
+        priority: low
+      - platform: twitter
+        day: tuesday
+        time: "09:00"
+        content_type: thread
+        priority: medium
+      - platform: twitter
+        day: friday
+        time: "09:00"
+        content_type: single-tweet
+        priority: low
+      - platform: linkedin
+        day: wednesday
+        time: "09:00"
+        content_type: long-form-post
+        priority: medium
+      - platform: newsletter
+        day: thursday
+        time: "08:00"
+        content_type: newsletter
+        priority: high
+      - platform: youtube_short
+        day: friday
+        time: "15:00"
+        content_type: youtube-short
+        priority: low
+
+  tundexai:  # AI Consulting
+    description: "AI tools, startups, build-in-public"
+    weekly_posts_target: 14
+    schedule:
+      - platform: linkedin
+        day: monday
+        time: "08:00"
+        content_type: long-form-post
+        priority: high
+      - platform: linkedin
+        day: wednesday
+        time: "09:00"
+        content_type: long-form-post
+        priority: high
+      - platform: twitter
+        day: monday
+        time: "08:00"
+        content_type: thread
+        priority: high
+      - platform: twitter
+        day: tuesday
+        time: "09:00"
+        content_type: thread
+        priority: high
+      - platform: twitter
+        day: thursday
+        time: "08:00"
+        content_type: thread
+        priority: medium
+      - platform: twitter
+        day: saturday
+        time: "10:00"
+        content_type: single-tweet
+        priority: low
+      - platform: instagram
+        day: tuesday
+        time: "14:00"
+        content_type: carousel
+        priority: high
+      - platform: instagram
+        day: friday
+        time: "14:00"
+        content_type: reel
+        priority: medium
+      - platform: newsletter
+        day: tuesday
+        time: "07:00"
+        content_type: newsletter
+        priority: high
+      - platform: youtube_short
+        day: wednesday
+        time: "15:00"
+        content_type: youtube-short
+        priority: medium
+      - platform: youtube_short
+        day: saturday
+        time: "10:00"
+        content_type: youtube-short
+        priority: low
+      - platform: youtube_long
+        day: thursday
+        time: "15:00"
+        content_type: youtube-video
+        priority: low
+
+  wellwithtunde:  # Holistic Wellness
+    description: "Men's wellness, mind-body, nutrition"
+    weekly_posts_target: 10
+    schedule:
+      - platform: instagram
+        day: monday
+        time: "11:00"
+        content_type: carousel
+        priority: high
+      - platform: instagram
+        day: thursday
+        time: "08:00"
+        content_type: reel
+        priority: high
+      - platform: instagram
+        day: saturday
+        time: "09:00"
+        content_type: feed-post
+        priority: medium
+      - platform: facebook
+        day: tuesday
+        time: "13:00"
+        content_type: feed-post
+        priority: medium
+      - platform: facebook
+        day: friday
+        time: "11:00"
+        content_type: feed-post
+        priority: low
+      - platform: linkedin
+        day: thursday
+        time: "08:00"
+        content_type: long-form-post
+        priority: medium
+      - platform: twitter
+        day: wednesday
+        time: "08:00"
+        content_type: thread
+        priority: medium
+      - platform: newsletter
+        day: thursday
+        time: "08:00"
+        content_type: newsletter
+        priority: high
+      - platform: youtube_short
+        day: monday
+        time: "15:00"
+        content_type: youtube-short
+        priority: medium
+      - platform: youtube_short
+        day: friday
+        time: "15:00"
+        content_type: youtube-short
+        priority: low
+
+  tundestalksmen:  # Men in Transition
+    description: "Fatherhood, faith, masculinity"
+    weekly_posts_target: 10
+    schedule:
+      - platform: instagram
+        day: tuesday
+        time: "08:00"
+        content_type: carousel
+        priority: high
+      - platform: instagram
+        day: friday
+        time: "11:00"
+        content_type: feed-post
+        priority: medium
+      - platform: instagram
+        day: sunday
+        time: "10:00"
+        content_type: reel
+        priority: medium
+      - platform: facebook
+        day: wednesday
+        time: "13:00"
+        content_type: feed-post
+        priority: high  # FB skews older audience — great for this niche
+      - platform: facebook
+        day: saturday
+        time: "12:00"
+        content_type: feed-post
+        priority: medium
+      - platform: linkedin
+        day: tuesday
+        time: "08:00"
+        content_type: long-form-post
+        priority: medium
+      - platform: twitter
+        day: monday
+        time: "08:00"
+        content_type: thread
+        priority: medium
+      - platform: twitter
+        day: friday
+        time: "09:00"
+        content_type: single-tweet
+        priority: low
+      - platform: newsletter
+        day: thursday
+        time: "08:00"
+        content_type: newsletter
+        priority: high
+      - platform: youtube_long
+        day: saturday
+        time: "12:00"
+        content_type: youtube-video
+        priority: low
