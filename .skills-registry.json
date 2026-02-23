@@ -19,17 +19,6 @@
     "installed_at": "2026-02-22T00:00:00.000000+00:00",
     "path": "C:\\Users\\olatu\\.claude\\skills\\user\\social-repurposer",
     "description": "Repurposes one content piece into LinkedIn, Twitter/X, Instagram, Facebook, Newsletter, and YouTube posts. Algorithm-first, Voice DNA injected, ContentStudio JSON + Markdown dual export.",
-    "scripts": [
-      "scripts/repurpose.py",
-      "scripts/voice_loader.py",
-      "scripts/niche_config.py",
-      "scripts/platform_specs.py",
-      "scripts/export.py"
-    ],
-    "templates": [
-      "templates/invideo_prompt.txt",
-      "templates/carousel_structure.json"
-    ],
     "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
   },
   "content-calendar": {
@@ -37,15 +26,70 @@
     "installed_at": "2026-02-22T00:00:00.000000+00:00",
     "path": "C:\\Users\\olatu\\.claude\\skills\\user\\content-calendar",
     "description": "Generates a full weekly content calendar for any Content Empire niche. Outputs ContentStudio bulk import JSON and human-readable CSV. Algorithm-optimized timing per platform.",
-    "scripts": [
-      "scripts/calendar_gen.py",
-      "scripts/timing_engine.py",
-      "scripts/contentstudio_export.py",
-      "scripts/csv_export.py"
-    ],
-    "config": [
-      "config/default_schedule.yaml"
-    ],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  },
+  "voice-enforcer": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\voice-enforcer",
+    "description": "Validates content against Tunde's 5-niche Voice DNA. Scores 0-100, flags violations with line-level fixes, blocks REJECT-level content. Auto-invoked on any content generation task.",
+    "scripts": ["scripts/voice_validator.py"],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  },
+  "hook-generator": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\hook-generator",
+    "description": "Generates high-performing opening hooks for LinkedIn posts, newsletters, and threads. 8 hook types: data-shock, bold-claim, question, story-open, contrarian, how-to, framework, cultural. Scores each hook.",
+    "scripts": ["scripts/hook_gen.py"],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  },
+  "research-synthesizer": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\research-synthesizer",
+    "description": "Multi-layer topic research and content brief synthesis. Searches news, data, expert takes, contrarian angles. Structures findings into niche-calibrated post angles with hook candidates.",
+    "scripts": ["scripts/research_synth.py"],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  },
+  "newsletter-writer": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\newsletter-writer",
+    "description": "Drafts newsletters for all 5 niches across ConvertKit, Beehiiv, Substack, and ContentStudio. Applies niche Voice DNA. Handles API posting or Markdown export depending on platform.",
+    "scripts": ["scripts/newsletter_writer.py"],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  },
+  "linkedin-post-writer": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\linkedin-post-writer",
+    "description": "LinkedIn-specific post drafting with hook, body, and CTA. Enforces character count, line break formatting, and hashtag placement. Voice DNA injected per niche. Generates 3 hook variants.",
+    "scripts": ["scripts/linkedin_writer.py"],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  },
+  "seo-optimizer": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\seo-optimizer",
+    "description": "SEO optimization for LinkedIn articles, newsletters, and long-form posts. Keyword extraction, meta description generation, internal link opportunities, readability scoring. Niche-calibrated keyword sets.",
+    "scripts": ["scripts/seo_optimizer.py"],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  },
+  "hashtag-strategist": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\hashtag-strategist",
+    "description": "Niche-specific hashtag strategy for LinkedIn, Instagram, and Twitter. 3-tier sets (niche + topic + broad). Platform-calibrated counts. Avoids banned, oversaturated, and off-brand tags.",
+    "scripts": ["scripts/hashtag_strategist.py"],
+    "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
+  },
+  "analytics-summarizer": {
+    "source": "personal",
+    "installed_at": "2026-02-22T00:00:00.000000+00:00",
+    "path": "C:\\Users\\olatu\\.claude\\skills\\user\\analytics-summarizer",
+    "description": "Weekly analytics brief from ContentStudio, LinkedIn, Instagram, or Twitter export data. Per-niche benchmark scoring, format breakdown, timing insights, competitor analysis, and 4 next-week recommendations.",
+    "scripts": ["scripts/analytics_summarizer.py"],
     "niches": ["ttbp", "cb", "tundexai", "wellwithtunde", "tundestalksmen"]
   }
 }
